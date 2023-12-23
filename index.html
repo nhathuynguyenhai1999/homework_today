@@ -6,23 +6,44 @@
         <title>Đăng nhập</title>
     </head>
     <body>
-        <h1>Login</h1>
-        <h3>Username</h3>
-        <input type="text" placeholder="type your username">
-        <h3>Password</h3>
-        <input type="text" placeholder="type your password">
-        <div><a href="">?forgot password</a></div>
-        <button>Login</button>
-        <div>or sign up using</div>
+        <!-- <div class="background-for-login"><h1>Login</h1>
+            <h3>Username</h3>
+            <input type="text" placeholder="type your username">
+            <h3>Password</h3>
+            <input type="text" placeholder="type your password"><br><br>
+            <div><a href="">?forgot password</a></div><br><br>
+            <button>Login</button><br><br>
+            <div>or sign up using</div>
+            <form action = "login" name="form-name"></div> -->
+                <h1 id="intro"></h1>
+                <h2 id="otrin"></h2>
+                <script>
+                    var intro = "Xin chào 500 anh em"
+                    var otrin = "Huy đại ca đã có mặt ở đây"
+                    document.getElementById("intro").innerHTML = intro;
+                    document.getElementById("otrin").innerHTML = otrin;
+                button.onclick= function()
+                    {
+                    alert("Họ sẽ độc lập tác chiến vào lúc 23h30");
+                }    
+                </script>
+                <button onclick="show-alert">Nhập vào triệu tập</button>
     </body>
     <style>
-        html {
+        <!-- html {
             text-align : center;
-        }
-        div {
+        } -->
+        <!-- div {
             text-align: center;
-            margin: 10px 0;
-        }
+        } -->
+        <!-- body {
+            <!-- background: gray; -->
+        <!-- } -->
+        .background-for-login {
+            background: orange;
+            border: 10px solid black;
+            padding: 20px 0 0 0;
+        } -->
     </style>
 </html>
 
@@ -47,10 +68,10 @@
     
             <label for="password">Mật khẩu:</label>
             <input type="password" id="password" name="password" required>
-    
-            <button type="submit">Đăng Nhập</button>
+            <!--  -->
+            <!-- <button type="submit">Đăng Nhập</button> -->
         </form>
-     -->
+     
 
 
 
@@ -58,7 +79,7 @@
 
 
 
- <!-- <style>
+ <!-- <!-- <style>
          html {
             text-align:center;
         }
@@ -108,4 +129,4 @@
         button:hover {
             background-color: #45a049;
         }
-    </style> -->    
+    <!-- </style> -->

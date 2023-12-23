@@ -2,42 +2,259 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CV xin việc</title>
+        <title>BEM</title>
 </head>
 <body>
-    <h1>LÝ LỊCH CÁ NHÂN</h1>
-    <img src="https://scontent.fhan2-4.fna.fbcdn.net/v/t39.30808-6/406812474_1401993204024835_1695690992826237166_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=ULD3nr641SkAX-hYS5d&_nc_ht=scontent.fhan2-4.fna&oh=00_AfCw9kCu9-pDQbx50qM0BzRCGPo5CPl5w_bCUxOOzuFCnw&oe=657C9B50" width="300">
-    <ul>
-        <li>Họ và tên: Nguyễn Hải Nhật Huy</li>
-        <li>Ngày, tháng , năm , sinh: 01/10/1999</li>
-        <li>Giới tính: Nam</li>
-        <li>Số điện thoại: 0848101999</li>
-        <li>Email: nhathuynguyenhai@gmail.com</li>
-    </ul>
-    <h2>Trình độ học vấn</h2>
-    <ul>
-        <li>Tốt nghiệp : chuyên ngành Mạng máy tính trường Đại Học Khoa Học Huế</li>
-        <li>Bằng cấp</li>
-            <ol>
-                <li>Bằng tốt nghiệp cử nhân</li>
-                <li>Bằng hoàn thành khóa học tư duy lập trình cơ bản</li>
-                <li>Ngoại ngữ không chuyên B1</li>
-            </ol>
-        <li>Trình độ làm việc</li>
-            <ol type="a">
-                <li>(06/2022-09/2022) Intern Devops tại công ty TNHH MTV Snaptec Việt Nam</li>
-                <li>(02/2023-04/2023) Content - Intern Marketing Saling tại Công ty CP Địa Ốc Đất Vàng Chung Group</li>
-                <li>(04/2023-06/2023) Intern BPO Design tại Công ty TNHH MTV Brycen Việt Nam</li>
-            </ol>
-        <li>Kỹ năng</li>
-        <ol>
-            <li>Tiếng Anh kha khá</li>
-            <li>Yêu thích về lập trình</li>
-        </ol>
-        <li>Mong muốn: Làm được 1 trang web có sự tương tác với tất cả mọi người
-            và mức lương chục triệu hằng mơ ước, vì lập trình viên của bản thân.
-        </li>
-    </ul>
+    <script>
+        function toast({ title = "", message = "", type = "info", duration = 3000 }) {
+            const main = document.getElementById("toast");
+            if (main) {
+              const toast = document.createElement("div");
+          
+              // Auto remove toast
+              const autoRemoveId = setTimeout(function () {
+                main.removeChild(toast);
+              }, duration + 1000);
+          
+              // Remove toast when clicked
+              toast.onclick = function (e) {
+                if (e.target.closest(".toast__close")) {
+                  main.removeChild(toast);
+                  clearTimeout(autoRemoveId);
+                }
+              };
+          
+              const icons = {
+                success: "fas fa-check-circle",
+                info: "fas fa-info-circle",
+                warning: "fas fa-exclamation-circle",
+                error: "fas fa-exclamation-circle"
+              };
+              const icon = icons[type];
+              const delay = (duration / 1000).toFixed(2);
+          
+              toast.classList.add("toast", `toast--${type}`);
+              toast.style.animation = `slideInLeft ease .3s, fadeOut linear 1s ${delay}s forwards`;
+          
+              toast.innerHTML = `
+                              <div class="toast__icon">
+                                  <i class="${icon}"></i>
+                              </div>
+                              <div class="toast__body">
+                                  <h3 class="toast__title">${title}</h3>
+                                  <p class="toast__msg">${message}</p>
+                              </div>
+                              <div class="toast__close">
+                                  <i class="fas fa-times"></i>
+                              </div>
+                          `;
+              main.appendChild(toast);
+            }
+          }
+          function showSuccessToast() {
+            toast({
+              title: "Chơi luôn!",
+              message: "Hãy quất tới bên mà đéo sợ điều gì.",
+              type: "success",
+              duration: 5000
+            });
+          }
+        
+          function showErrorToast() {
+            toast({
+              title: "Rút lui!",
+              message: "Tỉnh táo lên, đừng vì ham muốn mà đánh mất bản thân ,hãy nói chuyện vui vẻ và cử chỉ chuẩn mực nhất.",
+              type: "error",
+              duration: 5000
+            });
+          }  
+    </script>
+    <div id="toast"></div>
+
+    <div>
+      <div onclick="showSuccessToast();" class="btn btn--success">Muốn mây mưa với các cô gái trên 18 tuôi</div>
+      <div onclick="showErrorToast();" class="btn btn--danger">Muốn mây mưa với các cô gái trên 15 tuổi và dưới 18 tuổi </div>
+    </div>
 </body>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        font-family: system-ui, sans-serif;
+        background-color: #f4f4f5;
+      }
+      
+      body > div {
+        margin: auto;
+      }
+      
+      /* ======= Buttons ======== */
+      
+      /* Block */
+      .btn {
+        display: inline-block;
+        text-decoration: none;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: #fff;
+        padding: 12px 48px;
+        border-radius: 50px;
+        cursor: pointer;
+        min-width: 120px;
+        transition: opacity 0.2s ease;
+      }
+      
+      /* Modifier */
+      .btn--size-l {
+        padding: 16px 56px;
+      }
+      
+      .btn--size-s {
+        padding: 8px 32px;
+      }
+      
+      .btn:hover {
+        opacity: 0.8;
+      }
+      
+      .btn + .btn {
+        margin-left: 16px;
+      }
+      
+      .btn--success {
+        background-color: #71be34;
+      }
+      
+      .btn--warn {
+        background-color: #ffb702;
+      }
+      
+      .btn--danger {
+        background-color: #ff623d;
+      }
+      
+      .btn--disabled {
+        opacity: 0.5 !important;
+        cursor: default;
+      }
+      
+      /* ======= Toast message ======== */
+      
+      #toast {
+        position: fixed;
+        top: 32px;
+        right: 32px;
+        z-index: 999999;
+      }
+      
+      .toast {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 2px;
+        padding: 20px 0;
+        min-width: 400px;
+        max-width: 450px;
+        border-left: 4px solid;
+        box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+        transition: all linear 0.3s;
+      }
+      
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(calc(100% + 32px));
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      
+      @keyframes fadeOut {
+        to {
+          opacity: 0;
+        }
+      }
+      
+      .toast--success {
+        border-color: #47d864;
+      }
+      
+      .toast--success .toast__icon {
+        color: #47d864;
+      }
+      
+      .toast--info {
+        border-color: #2f86eb;
+      }
+      
+      .toast--info .toast__icon {
+        color: #2f86eb;
+      }
+      
+      .toast--warning {
+        border-color: #ffc021;
+      }
+      
+      .toast--warning .toast__icon {
+        color: #ffc021;
+      }
+      
+      .toast--error {
+        border-color: #ff623d;
+      }
+      
+      .toast--error .toast__icon {
+        color: #ff623d;
+      }
+      
+      .toast + .toast {
+        margin-top: 24px;
+      }
+      
+      .toast__icon {
+        font-size: 24px;
+      }
+      
+      .toast__icon,
+      .toast__close {
+        padding: 0 16px;
+      }
+      
+      .toast__body {
+        flex-grow: 1;
+      }
+      
+      .toast__title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+      }
+      
+      .toast__msg {
+        font-size: 14px;
+        color: #888;
+        margin-top: 6px;
+        line-height: 1.5;
+      }
+      
+      .toast__close {
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+      }      
+</style>
 </html>
